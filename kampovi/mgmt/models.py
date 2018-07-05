@@ -1,7 +1,6 @@
 from django.db import models
 
-<<<<<<< HEAD
-# Create your models here.
+
 class Radionica(models.Model):
 	name = models.CharField(
 		max_length = 200
@@ -17,7 +16,8 @@ class Radionica(models.Model):
 
 	def __str__(self):
 		return self.name
-=======
+
+
 class Kamp(models.Model):
 	name = models.CharField(
 		max_length=150
@@ -32,4 +32,3 @@ class Kamp(models.Model):
 	end_date = models.DateTimeField(
 		'Kraj kampa'
 	)
->>>>>>> 83897eecfd4b1c4ad9729d2d33c18167889543b0
