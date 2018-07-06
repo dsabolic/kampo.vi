@@ -14,6 +14,14 @@ class Radionica(models.Model):
 		max_length = 200
 	)
 
+	kamp = models.ForeignKey(
+		'Kamp',
+		on_delete = models.CASCADE
+	)
+
+	class Meta:
+		verbose_name_plural = 'Radionice'
+
 	def __str__(self):
 		return self.name
 
@@ -32,3 +40,6 @@ class Kamp(models.Model):
 	end_date = models.DateTimeField(
 		'Kraj kampa'
 	)
+
+	class Meta:
+		verbose_name_plural = 'Kampovi'
