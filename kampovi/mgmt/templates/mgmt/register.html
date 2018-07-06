@@ -2,5 +2,9 @@
 <form action="{% url 'success' kamp.id %}" method="post">
 	{% csrf_token %}
 
-	
+	First name: <input type="text" name="first_name"><br>
+	Last name: <input type="text" name="last_name"><br>
+
+	<input type="submit" value="Posalji prijavu!">
+
 </form>

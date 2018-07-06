@@ -17,4 +17,8 @@ def detail(request, kamp_id):
 	return render(request, 'mgmt/detail.html', {'kamp': kamp, 'radionice_list': radionice_list})
 
 def register(request, kamp_id):
-	return HttpResponse('registrirajte se')
+	kamp = get_object_or_404(Kamp, pk=kamp_id)
+	return render(request, 'mgmt/register.html', {'kamp': kamp})
+
+def success(request, kamp_id):
+	return HttpResponse("uspjesno ste registrirani")
