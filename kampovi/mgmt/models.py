@@ -3,21 +3,46 @@ from django.db import models
 
 class Radionica(models.Model):
 	name = models.CharField(
-		max_length = 200
+		max_length=200
 	)
 
 	leader_name = models.CharField(
-		max_length = 200
+		max_length=200
 	)
 
 	description = models.CharField(
-		max_length = 200,
+		max_length=200,
 		null=True
 	)
 
 	kamp = models.ForeignKey(
 		'Kamp',
 		on_delete = models.CASCADE
+	)
+	
+	start_time = models.TimeField(
+		'Pocetak radonice',
+		null=True
+	)
+	
+	end_time = models.TimeField(
+		'Kraj radonice',
+		null=True
+	)
+
+	difficulties = (
+		('b', 'Pocetna'),
+		('e', 'Lagana'),
+		('i', 'Srednja'),
+		('a', 'Napredna'),
+		('x', 'Experti'),
+		('o', 'Olimpijci'),
+	)
+
+	difficulty = models.CharField(
+		max_length=1,
+		choices=difficulties,
+		null=True
 	)
 
 	class Meta:

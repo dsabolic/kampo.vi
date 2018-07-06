@@ -5,13 +5,16 @@ class RadionicaAdmin(admin.ModelAdmin):
 	fields = [
 		'name',
 		'leader_name',
-		'description'
+		'description',
+		'start_time',
+		'end_time',
+		'difficulty'
 	]
 
 class RadionicaInline(admin.StackedInline):
 	model = Radionica
 	extra = 1
-
+ 
 class KampAdmin(admin.ModelAdmin):
 	fields = [
 		'name', 'location',
