@@ -1,0 +1,6 @@
+<h4>Prijava za {{ kamp.name }}</h4>
+<form action="{% url 'success' kamp.id %}" method="post">
+	{% csrf_token %}
+
+	
+</form>

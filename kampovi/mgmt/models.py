@@ -11,7 +11,8 @@ class Radionica(models.Model):
 	)
 
 	description = models.CharField(
-		max_length = 200
+		max_length = 200,
+		null=True
 	)
 
 	kamp = models.ForeignKey(
@@ -34,11 +35,16 @@ class Kamp(models.Model):
 	def __str__(self):
 		return self.name
 
-	start_date = models.DateTimeField(
-		'Pocetak kampa'
+	start_date = models.DateField(
+		'Pocetak kampa',
 	)
-	end_date = models.DateTimeField(
-		'Kraj kampa'
+	end_date = models.DateField(
+		'Kraj kampa',
+	)
+
+	location = models.CharField(
+		max_length = 200,
+		default = 'Krk'
 	)
 
 	class Meta:

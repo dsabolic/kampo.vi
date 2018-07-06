@@ -1,0 +1,19 @@
+<h1>{{ kamp.name }}</h1>
+<h4>Mjesto odrzavanja: {{ kamp.location }}</h4>
+<h4>Od {{ kamp.start_date }} do {{ kamp.end_date }}</h4>
+{% if radionice_list %}
+	<h4>Radionice na kampu:</h4>
+	<ul>
+		{% for radionica in radionice_list %}
+			<li>
+				<p>Ime radionice: {{ radionica.name }}</p>
+				<p>Voditelj: {{ radionica.leader_name }}</p>
+				<p>Opis: {{ radionica.description }}</p>
+			</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<h4>Greska: nema dostupnih radionica</h4>
+{% endif %}
+
+<a href="{% url 'register' kamp.id %}">Prijavi se!</a>
