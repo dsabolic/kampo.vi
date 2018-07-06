@@ -1,4 +1,25 @@
 from django.contrib import admin
+from .models import Kamp, Radionica
 
-admin.site.register(Kamp)
-admin.site.register(Radionica)
+class RadionicaAdmin(admin.ModelAdmin):
+	fields = [
+		'name',
+		'leader_name',
+		'description'
+	]
+
+class RadionicaInline(admin.StackedInline):
+	model = Radionica
+	extra = 1
+
+class KampAdmin(admin.ModelAdmin):
+	fields = [
+		'name',
+		('start_date', 'end_date')
+	]
+
+	inlines = [RadionicaInline]
+	list_display = ('name', 'start_date', 'end_date')
+
+admin.site.register(Kamp, KampAdmin)
+admin.site.register(Radionica, RadionicaAdmin)
