@@ -14,12 +14,12 @@ class RadionicaInline(admin.StackedInline):
 
 class KampAdmin(admin.ModelAdmin):
 	fields = [
-		'name',
+		'name', 'location',
 		('start_date', 'end_date')
 	]
 
 	inlines = [RadionicaInline]
-	list_display = ('name', 'start_date', 'end_date')
+	list_display = ('name', 'location', 'start_date', 'end_date')
 
 admin.site.register(Kamp, KampAdmin)
 admin.site.register(Radionica, RadionicaAdmin)

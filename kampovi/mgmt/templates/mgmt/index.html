@@ -1,0 +1,10 @@
+<h1>Kampo.vi</h1>
+{% if kampovi_list %}
+	<ul>
+		{% for kamp in kampovi_list %}
+			<li><a href="{% url 'detail' kamp.id %}">{{ kamp.name }}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>Nema unesenih kampova</p>
+{% endif %}
