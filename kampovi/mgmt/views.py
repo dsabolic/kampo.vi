@@ -21,4 +21,19 @@ def register(request, kamp_id):
 	return render(request, 'mgmt/register.html', {'kamp': kamp})
 
 def success(request, kamp_id):
-	return HttpResponse("uspjesno ste registrirani")
+	kamp = get_object_or_404(Kamp, pk=kamp_id)
+
+	first_name = request.POST['first_name']
+	last_name = request.POST['last_name']
+
+	if len(first_name) == 0 or len(last_name) == 0:
+		return render(
+			request,
+			'mgmt/register.html',
+			{
+				'kamp': kamp,
+				'error_message': 'Morate unijeti ime i prezime!'
+			}
+		)
+
+	return render(request, 'mgmt/success.html', {'kamp': kamp})
